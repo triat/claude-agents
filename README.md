@@ -156,12 +156,27 @@ Some agents trigger automatically in specific contexts:
 ## 🔧 Technical Details
 
 ### Agent Structure
-Each agent includes:
-- **name**: Unique identifier
-- **description**: When to use the agent with examples
-- **color**: Visual identification
-- **tools**: Specific tools the agent can access
-- **System prompt**: Detailed expertise and instructions
+Each agent is a Markdown file with YAML frontmatter following the [Claude Code sub-agents specification](https://code.claude.com/docs/en/sub-agents). The frontmatter fields are:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Unique identifier (kebab-case) |
+| `description` | Yes | When Claude should delegate to this agent, with 3-4 examples |
+| `color` | No | Visual identification: `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, `cyan` |
+| `model` | No | AI model: `opus`, `sonnet`, `haiku`, or `inherit` (default: `inherit`) |
+| `permissionMode` | No | Permission mode: `default`, `acceptEdits`, `plan`, `bypassPermissions` |
+| `tools` | No | Comma-separated list of tools the agent can access |
+| `maxTurns` | No | Maximum agentic turns before stopping |
+| `memory` | No | Persistent memory scope: `user`, `project`, or `local` |
+
+**Model distribution in this collection:**
+- **opus** (5): `backend-architect`, `sprint-prioritizer`, `legal-compliance-checker`, `finance-tracker`, `studio-coach` — complex reasoning tasks
+- **sonnet** (31): Most agents — balanced performance for coding and analysis
+- **haiku** (1): `joker` — lightweight, fast responses
+
+**Permission modes used:**
+- **default**: Standard permission checking (most agents)
+- **acceptEdits**: Auto-accept file edits (engineering agents, infrastructure-maintainer, ui-designer, whimsy-injector)
 
 ### Adding New Agents
 1. Create a new `.md` file in the appropriate department folder
@@ -195,8 +210,10 @@ Use this checklist when creating or modifying agents for your specific needs:
 - [ ] **YAML Frontmatter**
   - [ ] `name`: Unique agent identifier (kebab-case)
   - [ ] `description`: When to use + 3-4 detailed examples with context/commentary
-  - [ ] `color`: Visual identification (e.g., blue, green, purple, indigo)
-  - [ ] `tools`: Specific tools the agent can access (Write, Read, MultiEdit, Bash, etc.)
+  - [ ] `color`: Visual identification (`red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, `cyan`)
+  - [ ] `model`: AI model selection (`opus`, `sonnet`, `haiku`, or `inherit`)
+  - [ ] `permissionMode`: Permission behavior (`default`, `acceptEdits`, `plan`)
+  - [ ] `tools`: Specific tools the agent can access (Write, Read, Edit, Bash, Grep, Glob, etc.)
 
 #### 📝 System Prompt Requirements (500+ words)
 - [ ] **Agent Identity**: Clear role definition and expertise area
@@ -254,8 +271,10 @@ Use this checklist when creating or modifying agents for your specific needs:
 ---
 name: your-agent-name
 description: Use this agent when [scenario]. This agent specializes in [expertise]. Examples:\n\n<example>\nContext: [situation]\nuser: "[user request]"\nassistant: "[response approach]"\n<commentary>\n[why this example matters]\n</commentary>\n</example>\n\n[3 more examples...]
-color: agent-color
-tools: Tool1, Tool2, Tool3
+color: blue
+model: sonnet
+permissionMode: default
+tools: Write, Read, Edit, Bash, Grep, Glob
 ---
 
 You are a [role] who [primary function]. Your expertise spans [domains]. You understand that in 6-day sprints, [sprint constraint], so you [approach].
