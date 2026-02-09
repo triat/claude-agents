@@ -1,4 +1,4 @@
-# Contains Studio AI Agents
+# Claude Code AI Agents
 
 A comprehensive collection of specialized AI agents designed to accelerate and enhance every aspect of rapid development. Each agent is an expert in their domain, ready to be invoked when their expertise is needed.
 
@@ -6,7 +6,7 @@ A comprehensive collection of specialized AI agents designed to accelerate and e
 
 1. **Download this repository:**
    ```bash
-   git clone https://github.com/contains-studio/agents.git
+   git clone https://github.com/triat/agents.git
    ```
 
 2. **Copy to your Claude Code agents directory:**
@@ -35,7 +35,7 @@ Agents are automatically available in Claude Code. Simply describe your task and
 Agents are organized by department for easy discovery:
 
 ```
-contains-studio-agents/
+agents/
 ├── design/
 │   ├── brand-guardian.md
 │   ├── ui-designer.md
