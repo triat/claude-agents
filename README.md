@@ -29,6 +29,7 @@ Agents are automatically available in Claude Code. Simply describe your task and
 - "What's trending on TikTok that we could build?" → `trend-researcher`
 - "Our app reviews are dropping, what's wrong?" → `feedback-synthesizer`
 - "Make this loading screen more fun" → `whimsy-injector`
+- "Review this code for security vulnerabilities" → `security-code-reviewer`
 
 ## 📁 Directory Structure
 
@@ -72,6 +73,13 @@ agents/
 │   ├── infrastructure-maintainer.md
 │   ├── legal-compliance-checker.md
 │   └── support-responder.md
+├── security/
+│   ├── compliance-auditor.md
+│   ├── incident-responder.md
+│   ├── penetration-tester.md
+│   ├── security-architect.md
+│   ├── security-code-reviewer.md
+│   └── threat-hunter.md
 ├── testing/
 │   ├── api-tester.md
 │   ├── performance-benchmarker.md
@@ -127,6 +135,14 @@ agents/
 - **legal-compliance-checker** - Stay legal while moving fast
 - **support-responder** - Turn angry users into advocates
 
+### Security (`security/`)
+- **compliance-auditor** - Manage regulatory compliance and audit preparation
+- **incident-responder** - Respond to security incidents and conduct forensics
+- **penetration-tester** - Conduct ethical security assessments and vulnerability testing
+- **security-architect** - Design secure systems and threat models
+- **security-code-reviewer** - Security-focused code review and static analysis
+- **threat-hunter** - Proactive threat hunting and intelligence analysis
+
 ### Testing & Benchmarking (`testing/`)
 - **api-tester** - Ensure APIs work under pressure
 - **performance-benchmarker** - Make everything faster
@@ -171,7 +187,7 @@ Each agent is a Markdown file with YAML frontmatter following the [Claude Code s
 
 **Model distribution in this collection:**
 - **opus** (5): `backend-architect`, `sprint-prioritizer`, `legal-compliance-checker`, `finance-tracker`, `studio-coach` — complex reasoning tasks
-- **sonnet** (31): Most agents — balanced performance for coding and analysis
+- **sonnet** (37): Most agents — balanced performance for coding and analysis
 - **haiku** (1): `joker` — lightweight, fast responses
 
 **Permission modes used:**
@@ -250,6 +266,12 @@ Use this checklist when creating or modifying agents for your specific needs:
 - [ ] Market research requests
 - [ ] Strategic planning needs
 
+**Security Agents** need examples for:
+- [ ] Vulnerability assessment requests
+- [ ] Incident response scenarios
+- [ ] Compliance audit preparation
+- [ ] Secure architecture design
+
 **Operations Agents** need examples for:
 - [ ] Process optimization
 - [ ] Tool evaluation
@@ -296,6 +318,7 @@ Your goal is to [ultimate objective]. You [key behavior traits]. Remember: [key 
 **Marketing** (`marketing/`): Target viral potential, platform expertise, growth metrics
 **Product** (`product/`): Prioritize user value, data-driven decisions, market fit
 **Operations** (`studio-operations/`): Optimize processes, reduce friction, scale systems
+**Security** (`security/`): Assess vulnerabilities, enforce compliance, respond to incidents
 **Testing** (`testing/`): Ensure quality, find bottlenecks, validate performance
 **Project Management** (`project-management/`): Coordinate teams, ship on time, manage scope
 
